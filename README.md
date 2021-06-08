@@ -36,7 +36,7 @@ mkdir result
 mpirun -np 4 ./pindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
 The ```np``` parameter represents the number of processes. Other parameters can be viewed using the ```./pindel -h``` command.
-#### (4) If it is on a multi-node cluster with slurm, use the following command:
+#### (4) If it is on a multi-node cluster with slurm, use the following command（The specific submission instructions depend on the cluster you are using）:
 ```
 srun -N 4 ./pindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
