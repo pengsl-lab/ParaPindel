@@ -897,13 +897,10 @@ void hello() {
 	*logStream << std::endl << std::endl << std::endl;
 
 	*logStream << "           #******************************************************#" << std::endl;
-	*logStream << "           #                     PINDEL 0.3                       #" << std::endl;
+	*logStream << "           #                     PARAPINDEL                       #" << std::endl;
 	*logStream << "           #                                                      #" << std::endl;
 	*logStream << "           #         This is a parallel version of Pindel         #" << std::endl;
 	*logStream << "           #                                                      #" << std::endl;
-	*logStream << "           #                Author: Yaning Yang                   #" << std::endl;
-	*logStream << "           #                  (C) 2021-, CSEE                     #" << std::endl;
-	*logStream << "           #                  HUNAN UNIVERSITY                    #" << std::endl;
 	*logStream << "           #******************************************************#" << std::endl;
 	*logStream << std::endl << std::endl;
 }
