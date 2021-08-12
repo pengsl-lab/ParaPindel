@@ -22,7 +22,7 @@
 #include "control_state.h"
 #include "search_variant.h"
 #include "searchdeletions.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "reporter.h"
 
 SearchDeletions::SearchDeletions()

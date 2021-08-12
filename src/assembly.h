@@ -20,7 +20,7 @@
 
 #include "control_state.h"
 #include "user_defined_settings.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <vector>
 #include <map>
 #include <string>

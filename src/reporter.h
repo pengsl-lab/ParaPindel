@@ -24,10 +24,10 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include "pindel.h"
 #include "shifted_vector.h"
 #include "control_state.h"
 #include "bddata.h"
+#include "paraPindel.h"
 
 struct Variant {
    std::string VariantType;

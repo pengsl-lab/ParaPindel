@@ -19,9 +19,9 @@
  */
 
 // Pindel header files
-#include "pindel.h"
 #include "searcher.h"
 #include <cmath>
+#include "paraPindel.h"
 
 unsigned int numberOfCompetingPositions( const std::vector < PosVector >& positions, unsigned int maxIndex )
 {

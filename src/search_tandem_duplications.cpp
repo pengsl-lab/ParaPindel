@@ -24,7 +24,7 @@
 #include "control_state.h"
 #include "logdef.h"
 #include "search_tandem_duplications.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <ctime>
 double time_sortAndOutputTandemDuplications = 0;
 int searchTandemDuplications(ControlState& currentState, unsigned NumBoxes, const SearchWindow& window, int mpirank)

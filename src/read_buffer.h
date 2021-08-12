@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "pindel.h"
+#include "paraPindel.h"
 
 class ReadBuffer
 {

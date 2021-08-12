@@ -19,7 +19,7 @@
  */
 
 #include "control_state.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <vector>
 #include <map>
 #include <string>

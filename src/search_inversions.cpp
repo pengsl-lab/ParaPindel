@@ -24,7 +24,7 @@
 #include "control_state.h"
 #include "logdef.h"
 #include "search_inversions.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <ctime>
 double time_sortOutputInv = 0;
 

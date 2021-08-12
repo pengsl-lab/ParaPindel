@@ -21,6 +21,8 @@
 #ifndef SEARCHER_H
 #define	SEARCHER_H
 
+#include <paraPindel.h>
+
 bool CheckMismatches (const std::string & TheInput, const std::string & CurrentReadSeq, const UniquePoint & UP, short & numberOfMismatch);
 void CategorizePositions(const char readBase, const std::string & chromosomeSeq, const std::vector<PosVector>& PD_Plus, std::vector<PosVector>& PD_Plus_Output, const int numMisMatches,
                          const int searchDirection,	const int maxNumMismatches );

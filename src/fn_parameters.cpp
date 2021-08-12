@@ -7,7 +7,7 @@
 #include "user_defined_settings.h"
 #include "fn_parameters.h"
 #include "logdef.h"
-#include "pindel.h" // for logStream
+#include "paraPindel.h" // for logStream
 
 /* 'defineParameters' defines the parameters to be used by Pindel. Takes the variables from the calling function as argument for those variables which
  do not need to be stored in the par structure. */
@@ -424,12 +424,12 @@ bool isReadsFileParam(Parameter * param)
 void printHelp(const std::vector<Parameter *>& parameters)
 {
    *logStream << std::endl
-              << "Program:   pindel (detection of indels and structural variations)"
+              << "Program:   ParaPindel (multi-processes parallel implementation of Pindel)"
               << std::endl;
-   *logStream << Pindel_Version_str << std::endl;
-   *logStream << "Contact:   Kai Ye <kaiye@xjtu.edu.cn>" << std::endl << std::endl;
+   *logStream << "Multi-processes parallel implementation is based on " << Pindel_Version_str << std::endl;
+   *logStream << "Contact:   Kai Ye <kaiye@xjtu.edu.cn> or Yaning Yang <yangyn@hnu.edu.cn>" << std::endl << std::endl;
 
-   *logStream << "Usage:     pindel -f <reference.fa> -p <pindel_input>"
+   *logStream << "Usage:     paraPindel -f <reference.fa> -p <pindel_input>"
               << std::endl;
    *logStream << "           [and/or -i bam_configuration_file]" << std::endl;
    *logStream << "           -c <chromosome_name> -o <prefix_for_output_file>"

@@ -18,8 +18,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PINDEL_H
-#define	PINDEL_H
+#ifndef PARAPINDEL_H
+#define	PARAPINDEL_H
 
 #include <fstream>
 #include <iostream>

@@ -22,7 +22,7 @@
 #include <vector>
 #include "do_rd_rp.h"
 #include "reader.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "farend_searcher.h"
 #include <map>
 #include <string>

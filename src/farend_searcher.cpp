@@ -22,11 +22,11 @@
 #include <omp.h>
 #include <cstdlib>
 #include <unistd.h>
-#include "pindel.h"
 #include "searcher.h"
 #include "farend_searcher.h"
 
 #include <ctime>
+#include "paraPindel.h"
 
 
 

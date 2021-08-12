@@ -24,7 +24,7 @@
 #include "bam2depth.h"
 #include "assembly.h"
 #include "reader.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "farend_searcher.h"
 //#include "user_defined_settings.h"
 #include <map>

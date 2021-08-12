@@ -45,7 +45,6 @@
 //#include <mpi.h>
 // Pindel header files
 #include "logstream.h"
-#include "pindel.h"
 #include "fn_parameters.h"
 #include "bddata.h"
 #include "reader.h"
@@ -80,6 +79,7 @@
 #include "htslib/kseq.h"
 #include "htslib/khash.h"
 #include "htslib/ksort.h"
+#include "paraPindel.h"
 
 #define NUM_CHR 3000
 #define MAX_NUM_BAM_FILES 10
@@ -881,27 +881,30 @@ void createProbTable(const double seqErrorRate, const double sensitivity) {
 }
 
 void hello() {
-	*logStream << "                                                                               " << std::endl;
-	*logStream << "       ___                   ___         _____         ___                     " << std::endl;
-	*logStream << "      /  /\\     ___         /__/\\       /  /::\\       /  /\\                    " << std::endl;
-	*logStream << "     /  /::\\   /  /\\        \\  \\:\\     /  /:/\\:\\     /  /:/_                   " << std::endl;
-	*logStream << "    /  /:/\\:\\ /  /:/         \\  \\:\\   /  /:/  \\:\\   /  /:/ /\\   ___     ___    " << std::endl;
-	*logStream << "   /  /:/~/://__/::\\     _____\\__\\:\\ /__/:/ \\__\\:| /  /:/ /:/_ /__/\\   /  /\\   " << std::endl;
-	*logStream << "  /__/:/ /:/ \\__\\/\\:\\__ /__/::::::::\\\\  \\:\\ /  /://__/:/ /:/ /\\\\  \\:\\ /  /:/   " << std::endl;
-	*logStream << "  \\  \\:\\/:/     \\  \\:\\/\\\\  \\:\\~~\\~~\\/ \\  \\:\\  /:/ \\  \\:\\/:/ /:/ \\  \\:\\  /:/    " << std::endl;
-	*logStream << "   \\  \\::/       \\__\\::/ \\  \\:\\  ~~~   \\  \\:\\/:/   \\  \\::/ /:/   \\  \\:\\/:/     " << std::endl;
-	*logStream << "    \\  \\:\\       /__/:/   \\  \\:\\        \\  \\::/     \\  \\:\\/:/     \\  \\::/      " << std::endl;
-	*logStream << "     \\  \\:\\      \\__\\/     \\  \\:\\        \\__\\/       \\  \\::/       \\__\\/       " << std::endl;
-	*logStream << "      \\__\\/                 \\__\\/                     \\__\\/                    " << std::endl;
-	*logStream << "                                                                               " << std::endl;
+
+
+	*logStream << "                                                                                                                                     " << std::endl;
+	*logStream << "                                                                                                                                     " << std::endl;
+	*logStream << "     ___           ___           ___           ___           ___                       ___           ___           ___           ___ " << std::endl;
+	*logStream << "    /\\  \\         /\\  \\         /\\  \\         /\\  \\         /\\  \\          ___        /\\__\\         /\\  \\         /\\  \\         /\\__\\ " << std::endl;
+	*logStream << "   /::\\  \\       /::\\  \\       /::\\  \\       /::\\  \\       /::\\  \\        /\\  \\      /::|  |       /::\\  \\       /::\\  \\       /:/  / " << std::endl;
+	*logStream << "  /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\       \\:\\  \\    /:|:|  |      /:/\\:\\  \\     /:/\\:\\  \\     /:/  /  " << std::endl;
+	*logStream << " /::\\~\\:\\  \\   /::\\~\\:\\  \\   /::\\~\\:\\  \\   /::\\~\\:\\  \\   /::\\~\\:\\  \\      /::\\__\\  /:/|:|  |__   /:/  \\:\\__\\   /::\\~\\:\\  \\   /:/  /   " << std::endl;
+	*logStream << "/:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\  __/:/\\/__/ /:/ |:| /\\__\\ /:/__/ \\:|__| /:/\\:\\ \\:\\__\\ /:/__/   " << std::endl;
+	*logStream << "\\/__\\:\\/:/  / \\/__\\:\\/:/  / \\/_|::\\/:/  / \\/__\\:\\/:/  / \\/__\\:\\/:/  / /\\/:/  /    \\/__|:|/:/  / \\:\\  \\ /:/  / \\:\\~\\:\\ \\/__/ \\:\\  \\   " << std::endl;
+	*logStream << "     \\::/  /       \\::/  /     |:|::/  /       \\::/  /       \\::/  /  \\::/__/         |:/:/  /   \\:\\  /:/  /   \\:\\ \\:\\__\\    \\:\\  \\   " << std::endl;
+	*logStream << "      \\/__/        /:/  /      |:|\\/__/        /:/  /         \\/__/    \\:\\__\\         |::/  /     \\:\\/:/  /     \\:\\ \\/__/     \\:\\  \\  " << std::endl;
+	*logStream << "                  /:/  /       |:|  |         /:/  /                    \\/__/         /:/  /       \\::/__/       \\:\\__\\        \\:\\__\\ " << std::endl;
+	*logStream << "                  \\/__/         \\|__|         \\/__/                                   \\/__/         ~~            \\/__/         \\/__/ " << std::endl;
 	*logStream << std::endl << std::endl << std::endl;
 
-	*logStream << "           #******************************************************#" << std::endl;
-	*logStream << "           #                     PARAPINDEL                       #" << std::endl;
-	*logStream << "           #                                                      #" << std::endl;
-	*logStream << "           #         This is a parallel version of Pindel         #" << std::endl;
-	*logStream << "           #                                                      #" << std::endl;
-	*logStream << "           #******************************************************#" << std::endl;
+	*logStream << "           #*******************************************************************************************#" << std::endl;
+	*logStream << "           #                                     PARAPINDEL                                            #" << std::endl;
+	*logStream << "           #                                                                                           #" << std::endl;
+	*logStream << "           #         This is multi-processes parallel implementation of Pindel.                        #" << std::endl;
+	*logStream << "           #         Pindel's implementation can be found at https://github.com/xjtu-omics/pindel      #" << std::endl;
+	*logStream << "           #                                                                                           #" << std::endl;
+	*logStream << "           #*******************************************************************************************#" << std::endl;
 	*logStream << std::endl << std::endl;
 }
 

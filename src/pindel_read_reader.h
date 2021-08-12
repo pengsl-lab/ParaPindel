@@ -10,7 +10,7 @@
 #define __PINDELREADREADER_H__
 
 
-#include "pindel.h" // For SPLIT_READ struct
+#include "paraPindel.h" // For SPLIT_READ struct
 
 class LineReader;
 

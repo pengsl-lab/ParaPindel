@@ -34,13 +34,13 @@
 
 // Pindel header files
 #include "logstream.h"
-#include "pindel.h"
 #include "reader.h"
 #include "logdef.h"
 #include "refreader.h"
 #include "control_state.h"
 #include "read_buffer.h"
 #include "line_reader.h"
+#include "paraPindel.h"
 #include "pindel_read_reader.h"
 #include "user_defined_settings.h"
 // Static function declaration

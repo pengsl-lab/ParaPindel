@@ -1,6 +1,7 @@
 
 #include "ifstream_line_reader.h"
-#include "pindel.h" // for safeGetline
+
+#include "paraPindel.h" // for safeGetline
 
 using std::ifstream;
 //using std::getline;

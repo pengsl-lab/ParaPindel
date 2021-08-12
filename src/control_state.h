@@ -25,8 +25,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "paraPindel.h"
 // Pindel header files
-#include "pindel.h"
 #include "pindel_read_reader.h"
 //#include "bddata.h"
 

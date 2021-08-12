@@ -2,31 +2,31 @@
 # Include the local configuration
 -include Makefile.local
 
-default: pindel
+default: paraPindel
 
-all: pindel cppcheck functional-tests coverage-tests acceptance-tests \
+all: paraPindel cppcheck functional-tests coverage-tests acceptance-tests \
 	regression-tests
-test: pindel cppcheck functional-tests
+test: paraPindel cppcheck functional-tests
 
-pindel: Makefile.local
-	make -C src pindel
+paraPindel: Makefile.local
+	make -C src paraPindel
 
-pindel-debug: Makefile.local
-	make -C src pindel-debug
+paraPindel-debug: Makefile.local
+	make -C src paraPindel-debug
 
 cppcheck: Makefile.local
 	make -C src test
 
-acceptance-tests: Makefile.local pindel
+acceptance-tests: Makefile.local paraPindel
 	make -C test acceptance-tests
 
-coverage-tests: Makefile.local pindel-debug
+coverage-tests: Makefile.local paraPindel-debug
 	make -C test coverage-tests
 
-functional-tests: Makefile.local pindel
+functional-tests: Makefile.local paraPindel
 	make -C test functional-tests
 
-regression-tests: Makefile.local pindel
+regression-tests: Makefile.local paraPindel
 	make -C test regression-tests
 
 clean:
@@ -62,7 +62,7 @@ Makefile.local:
 	@false
 
 # Pseudo targets for configuration
-.PHONY: default all clean test pindel pindel-debug cppcheck acceptance-tests \
+.PHONY: default all clean test paraPindel paraPindel-debug cppcheck acceptance-tests \
 	coverage-tests functional-tests regression-tests
 .PRECIOUS: Makefile.local
 .IGNORE: clean

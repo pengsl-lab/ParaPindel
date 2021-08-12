@@ -12,7 +12,6 @@
 #include <math.h>
 
 // Other libraries.
-#include "pindel.h"
 #include "reader.h"
 #include "farend_searcher.h"
 #include "search_MEI.h"
@@ -21,6 +20,7 @@
 // Logging libraries.
 #include "logdef.h"
 #include "logstream.h"
+#include "paraPindel.h"
 
 // Size of the read buffer when reading split reads locally around potential MEI sites.
 const int SPLIT_READ_BUFFER_SIZE = 50000;

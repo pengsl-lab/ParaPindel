@@ -6,7 +6,7 @@
 #include "logstream.h"
 #include "user_defined_settings.h"
 
-#include "pindel.h"
+#include "paraPindel.h"
 
 UserDefinedSettings* UserDefinedSettings::m_instance = NULL;
 

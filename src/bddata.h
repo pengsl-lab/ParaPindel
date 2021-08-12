@@ -12,7 +12,7 @@
 #include <vector>
 
 #include "control_state.h"
-#include "pindel.h"
+#include "paraPindel.h"
 
 typedef std::vector< SearchWindow > SearchWindowCluster;
 typedef std::vector< BreakDancerEvent>::iterator BDIterator;

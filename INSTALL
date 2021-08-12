@@ -21,6 +21,8 @@
 
 cd ./htslib
 make
+
+echo "HTSLIB compilation completion"
 cd ../
 
 ABSPATH=`cd ./htslib; pwd`
@@ -55,7 +57,7 @@ if [ "$?" -ne 0 ]; then
     exit 1
 else
     echo "  "
-    mv src/pindel .
+    mv src/paraPindel .
     mv src/pindel2vcf .
     mv src/sam2pindel .
     mv src/pindel2vcf4tcga .

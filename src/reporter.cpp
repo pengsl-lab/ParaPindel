@@ -30,7 +30,6 @@
 
 // Pindel header files
 #include "logstream.h"
-#include "pindel.h"
 #include "logdef.h"
 #include "output_file_data.h"
 #include "output_sorter.h"
@@ -38,6 +37,7 @@
 #include "shifted_vector.h"
 //#include "genotyping.h"
 #include "bam2depth.h"
+#include "paraPindel.h"
 
 bool compare(const SPLIT_READ & one, const SPLIT_READ & two)
 {

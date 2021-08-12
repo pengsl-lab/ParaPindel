@@ -23,9 +23,9 @@
 #include <fstream>
 
 // Pindel header files
-#include "pindel.h"
 #include "logdef.h"
 #include "refreader.h"
+#include "paraPindel.h"
 
 RefReader::RefReader(std::ifstream & inf_Seq_in, std::string & TheInput_in)
 {

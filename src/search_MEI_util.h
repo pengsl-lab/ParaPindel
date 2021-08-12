@@ -23,7 +23,7 @@
 
 #include <sstream>
 
-#include "pindel.h"
+#include "paraPindel.h"
 #include "search_MEI.h"
 
 // Return current time in string format as used for logging.

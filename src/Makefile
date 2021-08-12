@@ -1,8 +1,7 @@
 include ../Makefile.local
 
-MPICXX = mpicxx
-CXX = g++
-SOURCES=pindel.cpp reader.cpp reporter.cpp searcher.cpp parameter.cpp \
+CXX = mpicxx
+SOURCES=paraPindel.cpp reader.cpp reporter.cpp searcher.cpp parameter.cpp \
     refreader.cpp control_state.cpp search_deletions_nt.cpp \
     search_inversions.cpp search_inversions_nt.cpp bam2depth.cpp\
     search_tandem_duplications.cpp search_tandem_duplications_nt.cpp \
@@ -15,30 +14,30 @@ SOURCES=pindel.cpp reader.cpp reporter.cpp searcher.cpp parameter.cpp \
     search_MEI.cpp assembly.cpp genotyping.cpp
 
  
-all:	pindel pindel-debug
+all:	paraPindel paraPindel-debug
 -include $(SOURCES:.cpp=.d)
 -include $(SOURCES:.cpp=-debug.d)
-test:	pindel $(addprefix cppcheck-result-,$(SOURCES:.cpp=.xml))
+test:	paraPindel $(addprefix cppcheck-result-,$(SOURCES:.cpp=.xml))
 
 pindel-debug: $(SOURCES:.cpp=-debug.o)
-	$(MPICXX) $(LDFLAGS) $^ -fopenmp -g -pg -fprofile-arcs -ftest-coverage \
+	$(CXX) $(LDFLAGS) $^ -fopenmp -g -pg -fprofile-arcs -ftest-coverage \
 	  $(HTSLIB_LDFLAGS) -lhts -lm -lz -o $@
 
-pindel:	$(SOURCES:.cpp=.o)
-	$(MPICXX) $(LDFLAGS) $(HTSLIB_LDFLAGS) $^ -O3 -fopenmp -pg -lhts -lm -lz -o $@
-	$(CXX) -O3 -fopenmp -pg SAM_2_PINDEL_cin_2011Sept26.cpp -o  sam2pindel
-	$(CXX) -O3 -fopenmp -pg pindel2vcf.cpp -o pindel2vcf
-	$(CXX) -O3 -fopenmp -pg pindel2vcf4tcga.cpp -o pindel2vcf4tcga
+paraPindel:	$(SOURCES:.cpp=.o)
+	$(CXX) $(LDFLAGS) $(HTSLIB_LDFLAGS) $^ -O3 -fopenmp -fPIE -pg -lhts -lm -lz -o $@
+	$(CXX) -O3 -w -fopenmp -pg  SAM_2_PINDEL_cin_2011Sept26.cpp -o  sam2pindel
+	$(CXX) -O3 -w -fopenmp -pg  pindel2vcf.cpp -o pindel2vcf
+	$(CXX) -O3 -w -fopenmp -pg  pindel2vcf4tcga.cpp -o pindel2vcf4tcga
 clean:
-	$(RM) pindel pindel2vcf pindel2vcf4tcga pindel-debug $(OBJECTS) $(OBJECTS_DEBUG) $(CPPCHECKS) \
+	$(RM) paraPindel pindel2vcf pindel2vcf4tcga pindel-debug $(OBJECTS) $(OBJECTS_DEBUG) $(CPPCHECKS) \
 	    *.gcov *.gcda *.gcno gmon.out *.d *.o
 
 
 %.o: %.cpp
-	$(MPICXX) $(MPICXXFLAGS) $(HTSLIB_CPPFLAGS) -Wall -g -c -O3 -fopenmp   $< -o $@
+	$(CXX) $(MPICXXFLAGS) $(HTSLIB_CPPFLAGS) -Wall -g -c -O3 -fopenmp   $< -o $@
 
 %-debug.o: %.cpp
-	$(MPICXX) $(MPICXXFLAGS) -Wall -g -c -fopenmp -g -pg  \
+	$(CXX) $(MPICXXFLAGS) -Wall -g -c -fopenmp -g -pg  \
 	  -fprofile-arcs -ftest-coverage $(HTSLIB_CPPFLAGS) $< -o $@
 
 
@@ -48,13 +47,13 @@ cppcheck-result-%.xml: %.cpp
 
 %.d: %.cpp
 	@set -e; rm -f $@; \
-	    $(MPICXX) -MM $(CPPFLAGS) $(HTSLIB_CPPFLAGS) $< > $@.$$$$; \
+	    $(CXX) -MM $(CPPFLAGS) $(HTSLIB_CPPFLAGS) $< > $@.$$$$; \
 	    sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 	    $(RM) $@.$$$$
 
 %-debug.d: %.cpp
 	@set -e; rm -f $@; \
-	    $(MPICXX) -MM $(CPPFLAGS) $(HTSLIB_CPPFLAGS) $< > $@.$$$$; \
+	    $(CXX) -MM $(CPPFLAGS) $(HTSLIB_CPPFLAGS) $< > $@.$$$$; \
 	    sed 's,\($*\)\.o[ :]*,\1-debug.o $@ : ,g' < $@.$$$$ > $@; \
 	    $(RM) $@.$$$$
 

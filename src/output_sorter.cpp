@@ -24,9 +24,9 @@
 
 // Pindel header files
 #include "logstream.h"
-#include "pindel.h"
 #include "logdef.h"
 #include "output_sorter.h"
+#include "paraPindel.h"
 
 OutputSorter::OutputSorter (const unsigned &NumBoxes_in, const std::string & CurrentChr_in,
                             std::ofstream & InvOutf_in)

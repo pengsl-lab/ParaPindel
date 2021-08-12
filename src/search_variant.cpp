@@ -27,9 +27,9 @@
 #include "logstream.h"
 #include "control_state.h"
 #include "search_variant.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "logdef.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <ctime>
 double time_sortOutputDI = 0;
 SearchVariant::SearchVariant() {

@@ -6,7 +6,7 @@
 */
 
 #include "read_buffer.h"
-#include "pindel.h"
+#include "paraPindel.h"
 
 /* 'ReadBuffer' constructor: sets the capacity of the buffer */
 ReadBuffer::ReadBuffer( int capacity, std::vector<SPLIT_READ> &referenceToFilteredReads, std::vector<SPLIT_READ> &referenceToOneEndMappedReads, const std::string& chromosome)

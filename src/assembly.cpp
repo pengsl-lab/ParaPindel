@@ -22,7 +22,7 @@
 #include <vector>
 #include "assembly.h"
 #include "reader.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "farend_searcher.h"
 #include "control_state.h"
 #include "user_defined_settings.h"

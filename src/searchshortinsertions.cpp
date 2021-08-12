@@ -22,9 +22,9 @@
 #include "control_state.h"
 #include "search_variant.h"
 #include "searchshortinsertions.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "reporter.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <ctime>
 double time_sortOutputSI = 0;
 SearchShortInsertions::SearchShortInsertions()

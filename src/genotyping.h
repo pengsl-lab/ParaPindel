@@ -19,7 +19,7 @@
  */
 
 #include "control_state.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include "assembly.h"
 //#include "user_defined_settings.h"
 #include <vector>

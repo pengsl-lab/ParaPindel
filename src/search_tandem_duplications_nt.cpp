@@ -23,7 +23,7 @@
 #include "reporter.h"
 #include "control_state.h"
 #include "logdef.h"
-#include "pindel.h"
+#include "paraPindel.h"
 #include <ctime>
 
 int searchTandemDuplicationsNT(ControlState& currentState, unsigned NumBoxes, const SearchWindow& window, int mpirank)
