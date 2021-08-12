@@ -1,5 +1,5 @@
 # ParaPindel
-A parallel version of Pindel to accelerate structural variation detection
+This is a multi-processes parallel version of Pindel to accelerate structural variation detection. Pindel's implementation can be found at https://github.com/xjtu-omics/pindel
 ![ParaPindel logo](logo.png)
 
 ## To run ParaPindel, follow these steps:
@@ -33,13 +33,19 @@ mkdir result
 ````
 #### (3) If it is on a workstation with a single node, use the following command to run ParaPindel
 ```
-mpirun -np 4 ./pindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+mpirun -np 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
-The ```np``` parameter represents the number of processes. Other parameters can be viewed using the ```./pindel -h``` command.
+The ```-np``` parameter represents the number of processes. Other parameters can be viewed using the ```./paraPindel -h``` command.
 #### (4) If it is on a multi-node cluster with slurm, use the following command（The specific submission instructions depend on the cluster you are using）:
 ```
-srun -N 4 ./pindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+srun -N 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
+Or submit according to the job method with the following command:
+```
+sbatch -N 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+```
+
+```-np``` is a parameter that needs to be added when running the ```mpirun``` command, not a parameter of ```./paraPindel```, which represents how many processes are used for parallel detection. Similarly, ```-N``` is the parameter when running the ```srun``` or ```sbatch``` command.
 ### Combine the calculation results of each process, take deletion variation as an example.
 ```
 cd ./result
@@ -51,4 +57,6 @@ rm test_D_*
 ../pindel2vcf -p test_D -r /path/to/your/reference.fasta -R hg19 -d 20210606 -G -v test_D.vcf
 cat test_D.vcf | vcf-sort > test_D_sorted.vcf
 ```
+The ```pindel2vcf``` tool is used to convert the variation results into ```vcf``` format, which is implemented in Pindel. For the specific usage of ```pindel2vcf```, please refer to the Pindel homepage (https://github.com/xjtu-omics/pindel).
+
 ### If you have any questions or comments, please feel free to email:yangyn@hnu.edu.cn
