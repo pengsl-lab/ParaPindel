@@ -46,6 +46,7 @@ sbatch -N 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.con
 ```
 
 ```-np``` is a parameter that needs to be added when running the ```mpirun``` command, not a parameter of ```./paraPindel```, which represents how many processes are used for parallel detection. Similarly, ```-N``` is the parameter when running the ```srun``` or ```sbatch``` command.
+<br>The ```-T``` parameter is implemented in the current Pindel version (https://github.com/xjtu-omics/pindel) and represents the number of threads. ```-T 8``` is specified here, which means that 8 threads are used in each process. <br>
 ### Combine the calculation results of each process, take deletion variation as an example.
 ```
 cd ./result
