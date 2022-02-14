@@ -2,6 +2,9 @@
 This is a multi-processes parallel version of Pindel to accelerate structural variation detection. Pindel's implementation can be found at https://github.com/xjtu-omics/pindel
 ![ParaPindel logo](logo.png)
 
+## Publication
+Yang, Y., Wang, X., Xu, Y., Yang, C., Jiang, B., & Peng, S. (2021, December). ParaPindel: a scalable coordinated parallel detection framework for human genome-wide structural variation. In 2021 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) (pp. 574-579). IEEE.
+
 ## To run ParaPindel, follow these steps:
 
 ### 1. Configure MPI environment
