@@ -36,16 +36,16 @@ mkdir result
 ````
 #### (3) If it is on a workstation with a single node, use the following command to run ParaPindel
 ```
-mpirun -np 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+mpirun -np 4 ./paraPindel -f /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
 The ```-np``` parameter represents the number of processes. Other parameters can be viewed using the ```./paraPindel -h``` command.
 #### (4) If it is on a multi-node cluster with slurm, use the following command（The specific submission instructions depend on the cluster you are using）:
 ```
-srun -N 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+srun -N 4 ./paraPindel -f /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
 Or submit according to the job method with the following command:
 ```
-sbatch -N 4 ./paraPindel /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
+sbatch -N 4 ./paraPindel -f /path/to/your/reference.fasta -i /path/to/your/test.config -w 5 -W 5 -c ALL -T 8 -o ./result/test
 ```
 
 ```-np``` is a parameter that needs to be added when running the ```mpirun``` command, not a parameter of ```./paraPindel```, which represents how many processes are used for parallel detection. Similarly, ```-N``` is the parameter when running the ```srun``` or ```sbatch``` command.
